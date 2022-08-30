@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "vue": "^2.6.14"
+    "element-ui": "^2.15.9",
+    "vue": "^2.6.14",
+    "vue-router": "^3.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -17,6 +19,7 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "babel-plugin-component": "^1.1.1",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "vue-template-compiler": "^2.6.14"
@@ -32,9 +35,10 @@
     ],
     "parserOptions": {
       "parser": "@babel/eslint-parser",
-      "requireConfigFile":false
+      "requireConfigFile": false
     },
-    "rules": {}
+    "rules": {
+    }
   },
   "browserslist": [
     "> 1%",
