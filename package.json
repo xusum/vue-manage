@@ -35,9 +35,12 @@
     ],
     "parserOptions": {
       "parser": "@babel/eslint-parser",
-      "requireConfigFile": false
+      "requireConfigFile": false,
+      "sourceType": "module",
+      "ecmaVersion": 2016
     },
     "rules": {
+      "vue/multi-word-component-names": "off"
     }
   },
   "browserslist": [
