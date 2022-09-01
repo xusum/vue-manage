@@ -18,11 +18,12 @@
     </header>
 </template>
 <script>
+import userImg from '../assets/images/user.png'
 export default {
     name: 'CommonHeader',
     data() {
         return {
-            userImg: require('../assets/images/user.png')
+            userImg: userImg
         }
     },
     methods:{
