@@ -5,18 +5,24 @@
             <common-aside></common-aside>
         </el-aside>
         <el-container>
-            <el-header>Header</el-header>
-            <el-main>Main</el-main>
+            <el-header>
+                <common-header></common-header>
+            </el-header>
+            <el-main>
+                <router-view></router-view>
+            </el-main>
         </el-container>
     </el-container>
 </template>
 
 <script>
-import CommonAside from "../src/components/commonAside.vue"
+import CommonAside from "../src/components/CommonAside.vue"
+import CommonHeader from "../src/components/CommonHeader.vue";
 export default {
     name: 'Home',
     components: {
-        CommonAside
+        CommonAside,
+        CommonHeader
     },
     data() {
         return {}
