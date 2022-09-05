@@ -14,14 +14,14 @@
                     <p>上次登录地址：<span>北京</span></p>
                 </div>
             </el-card>
-            <el-crad>
+            <el-card>
                 <el-table style="margin-top:20px;" :data="tableData">
                     <el-table-column v-for="(val, key) in tableLabel" v-bind:key="key" v-bind:prop="key"
                         v-bind:label="val">
                     </el-table-column>
 
                 </el-table>
-            </el-crad>
+            </el-card>
         </el-col>
         <el-col :span="16" style="margin-top:20px">
             <div class="num">
@@ -35,7 +35,9 @@
                     </div>
                 </el-card>
             </div>
-            <el-card style="height: 220px">
+            <el-card style="height: 280px">
+                <div style="height: 280px" ref="echarts">
+                </div>
             </el-card>
             <div class="graph">
                 <el-card style="height: 200px"></el-card>
@@ -46,12 +48,15 @@
 </template>
 
 <script>
+import { getData } from '../../api/data.js'
+import * as echarts from 'echarts'
 export default {
     name: 'home',
     data() {
         return {
             userImg: require('../../src/assets/images/user.png'),
-            tableData: [
+            tableData:[],
+            tableDatas: [
                 {
                     name: 'oppo',
                     todayBuy: 100,
@@ -137,13 +142,38 @@ export default {
         }
     },
     mounted() {
-        this.$http.get('/user?ID=12345')
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        getData().then(res => {
+            const { code , data } = res.data
+            if(code === 20000){
+                this.tableData = data.tableData
+                const order = data.orderData
+                const keyArray = Object.keys(order.data[0])
+                const xData = order.date
+                const series = []
+                keyArray.forEach(key => {
+                    series.push({
+                        name: key,
+                        data:order.data.map(item => item[key]),
+                        type:'line'
+                    })
+                })
+
+                const option = {
+                    xAxis:{
+                        data: xData
+                    },
+                    yAxis:{},
+                    legend:{
+                        data:keyArray
+                    },
+                    series
+                }
+
+               const E = echarts.init(this.$refs.echarts)
+               E.setOption(option)
+            }
+            console.log(res);
+        })     
     }
 }
 </script>

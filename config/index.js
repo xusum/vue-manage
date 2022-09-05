@@ -1,5 +1,5 @@
 export default {
-    baseURL: {
+    baseUrl: {
         dev: '/api/',
         pro: ''
     }

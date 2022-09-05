@@ -2,18 +2,18 @@
     <el-menu default-active="1-4-1" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b"  @open="handleOpen" @close="handleClose"
         :collapse="isCollapse">
         <h3>{{isCollapse ? '后台' : '通用后台管理系统'}}</h3>
-        <el-menu-item v-on:click="clickMenu(item)" v-for="item in noChildren" v-bind:index="item.path" v-bind:key="item.path">
+        <el-menu-item v-on:click="clickMenu(item)" v-for="item in noChildren" v-bind:index="item.path+''" v-bind:key="item.path">
             <i v-bind:class="'el-icon-' + item.icon"></i>
             <span slot="title">{{ item.label }}</span>
         </el-menu-item>
 
-        <el-submenu v-for="item in hasChildren" v-bind:index="item.path" v-bind:key="item.path">
+        <el-submenu v-for="item in hasChildren" v-bind:index="item.path+''" v-bind:key="item.path">
             <template slot="title">
                 <i v-bind:class="'el-icon-' + item.icon"></i>
                 <span slot="title">{{ item.label }}</span>
             </template>
             <el-menu-item-group v-for="(subItem, subIndex) in item.children" v-bind:key="subItem.path">
-                <el-menu-item v-bind:index="subIndex">{{ subItem.label }}</el-menu-item>
+                <el-menu-item v-bind:index="subIndex.toString()">{{ subItem.label }}</el-menu-item>
             </el-menu-item-group>
         </el-submenu>
     </el-menu>

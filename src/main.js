@@ -2,8 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import { Button, Radio, Container, Main, Header, 
   Aside, Menu, Submenu, MenuItem, MenuItemGroup, 
-  Dropdown, DropdownItem, DropdownMenu, Row, Card, 
-  Col, Table, TableColumn, } from 'element-ui';
+  Dropdown, DropdownItem, DropdownMenu, Row,  
+  Col, Table, TableColumn, Card} from 'element-ui';
 import './assets/less/index.less'
 
 
@@ -12,6 +12,8 @@ import './assets/less/index.less'
 import router from '../router'
 import store from '../store'
 import http from 'axios'
+import '../api/mock.js'
+
 
 
 
@@ -30,10 +32,11 @@ Vue.use(Dropdown);
 Vue.use(DropdownItem);
 Vue.use(DropdownMenu);
 Vue.use(Row);
-Vue.use(Card);
 Vue.use(Col)
 Vue.use(Table)
 Vue.use(TableColumn)
+Vue.use(Card)
+
 
 
 

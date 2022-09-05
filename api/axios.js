@@ -1,17 +1,16 @@
 import axios from 'axios'
-import { options } from 'less'
 import config from '../config'
 
-const baseURL = process.env.NODE_EAV === 'develoment' ? config.baseURL.dev : config.baseURL.pro
+const baseUrl = process.env.NODE_ENV === 'development' ? config.baseUrl.dev : config.baseUrl.pro
 
 class HttpRequest {
-    constructor(baseURL) {
-        this.baseURL = baseURL
+    constructor(baseUrl) {
+        this.baseUrl = baseUrl
     }
 
     getInsideConfig() {
         const config = {
-            baseURL: this.baseURL,
+            baseUrl: this.baseUrl,
             header: {
 
             }
@@ -29,23 +28,22 @@ class HttpRequest {
 
         // 添加响应拦截器
         axios.interceptors.response.use(function (response) {
+            console.log(response,'response');
             // 对响应数据做点什么
             return response;
         }, function (error) {
+            console.log(error,'error');
             // 对响应错误做点什么
             return Promise.reject(error);
         });
     }
-    request(){
+    request(options){
         const instance = axios.create()
         // eslint-disable-next-line no-import-assign
-        options = {
-            ...this.getInsideConfig(),
-            ...options
-        }
+        options = { ...this.getInsideConfig(), ...options }
         this.interceptors(instance)
         return instance(options)
     }
 }
 
-export default new HttpRequest(baseURL)
+export default new HttpRequest(baseUrl)
