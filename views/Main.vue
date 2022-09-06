@@ -1,7 +1,7 @@
 
 <template>
     <el-container style="height: 100%">
-        <el-aside width="auto">
+        <el-aside width="auto" class="l-aside">
             <common-aside></common-aside>
         </el-aside>
         <el-container>
@@ -35,6 +35,10 @@ export default {
     }
     .el-main{
         padding-top: 0;
+    }
+    .l-aside{
+        overflow: hidden;
+        
     }
 </style>
 
