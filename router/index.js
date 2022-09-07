@@ -10,6 +10,7 @@ const routes = [
         path: '/',
         name: 'Main',
         component: () => import ('../views/Main.vue'),
+        redirect: '/home',
         children:[
             {
                 path:'/home',
@@ -20,7 +21,23 @@ const routes = [
                 path: '/user',
                 name: 'user',
                 component: () => import('../views/User')
-            }
+            },
+            {
+                path: '/mall',
+                name: 'mall',
+                component: () => import('../views/mall/index.vue')
+            },
+            {
+                path: '/pageOne',
+                name: 'page1',
+                component: () => import('../views/other/pageOne.vue')
+            },
+            {
+                path: '/pageTwo',
+                name: 'page2',
+                component: () => import('../views/other/pageTwo.vue')
+            },
+
         ]
     },
    

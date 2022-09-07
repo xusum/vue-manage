@@ -161,7 +161,6 @@ export default {
                     series: []
                 }
             }
-
         }
     },
     mounted() {
@@ -180,11 +179,9 @@ export default {
                         type: 'line'
                     })
                 })
-
                 //折线图
                 this.echartData.order.xData = xData
                 this.echartData.order.series = series
-               
                 // 柱状图
                 this.echartData.user.xData = data.userData.map(item => item.date)
                 this.echartData.user.series = [
@@ -199,13 +196,11 @@ export default {
                         type: 'bar'
                     }
                 ]
-
                 // 饼图
                 this.echartData.video.series = [
                     {
                         type: 'pie',
                         data: data.videoData,
-
                     }
                 ]
             }

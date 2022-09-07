@@ -12,8 +12,8 @@
                 <i v-bind:class="'el-icon-' + item.icon"></i>
                 <span slot="title">{{ item.label }}</span>
             </template>
-            <el-menu-item-group v-for="(subItem, subIndex) in item.children" v-bind:key="subItem.path">
-                <el-menu-item v-bind:index="subIndex.toString()">{{ subItem.label }}</el-menu-item>
+            <el-menu-item-group  v-for="(subItem, subIndex) in item.children" v-bind:key="subItem.path">
+                <el-menu-item v-on:click="clickMenu(subItem)"  v-bind:index="subIndex.toString()">{{ subItem.label }}</el-menu-item>
             </el-menu-item-group>
         </el-submenu>
     </el-menu>
@@ -98,6 +98,7 @@ export default {
             this.$router.push({
                 name: item.name
             })
+            this.$store.commit('selectMenu', item)
         }
     },
     computed: {

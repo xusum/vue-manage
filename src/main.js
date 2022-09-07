@@ -3,7 +3,8 @@ import App from './App.vue'
 import { Button, Radio, Container, Main, Header, 
   Aside, Menu, Submenu, MenuItem, MenuItemGroup, 
   Dropdown, DropdownItem, DropdownMenu, Row,  
-  Col, Table, TableColumn, Card} from 'element-ui';
+  Col, Table, TableColumn, Card, Breadcrumb, 
+  BreadcrumbItem, Tag, } from 'element-ui';
 import './assets/less/index.less'
 
 
@@ -36,6 +37,9 @@ Vue.use(Col)
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Card)
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
+Vue.use(Tag)
 
 
 
