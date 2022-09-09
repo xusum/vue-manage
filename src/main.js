@@ -4,7 +4,8 @@ import { Button, Radio, Container, Main, Header,
   Aside, Menu, Submenu, MenuItem, MenuItemGroup, 
   Dropdown, DropdownItem, DropdownMenu, Row,  
   Col, Table, TableColumn, Card, Breadcrumb, 
-  BreadcrumbItem, Tag, } from 'element-ui';
+  BreadcrumbItem, Tag, Form, FormItem, Input, 
+  Select, Switch, DatePicker, Option, Dialog} from 'element-ui';
 import './assets/less/index.less'
 
 
@@ -40,6 +41,14 @@ Vue.use(Card)
 Vue.use(Breadcrumb)
 Vue.use(BreadcrumbItem)
 Vue.use(Tag)
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Input)
+Vue.use(Select)
+Vue.use(Switch)
+Vue.use(Option)
+Vue.use(DatePicker)
+Vue.use(Dialog)
 
 
 
