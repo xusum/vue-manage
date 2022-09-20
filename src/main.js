@@ -5,7 +5,8 @@ import { Button, Radio, Container, Main, Header,
   Dropdown, DropdownItem, DropdownMenu, Row,  
   Col, Table, TableColumn, Card, Breadcrumb, 
   BreadcrumbItem, Tag, Form, FormItem, Input, 
-  Select, Switch, DatePicker, Option, Dialog} from 'element-ui';
+  Select, Switch, DatePicker, Option, Dialog,
+  Pagination, MessageBox, Message} from 'element-ui';
 import './assets/less/index.less'
 
 
@@ -49,11 +50,20 @@ Vue.use(Switch)
 Vue.use(Option)
 Vue.use(DatePicker)
 Vue.use(Dialog)
+Vue.use(Pagination)
+
+
+
+
 
 
 
 
 Vue.prototype.$http = http
+Vue.prototype.$confirm = MessageBox.confirm
+Vue.prototype.$message = Message
+
+
 
 new Vue({
   store,

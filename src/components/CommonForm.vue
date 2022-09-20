@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-mutating-props -->
 <!-- eslint-disable vue/no-parsing-error -->
 <template>
     <el-form ref="form" label-width="100px" :model="form" :inline="inline">
@@ -5,6 +6,7 @@
             <el-input
                 v-if="item.type === 'input'"
                 :placeholder="'请输入' + item.label"
+                eslint-disable-next-line vue
                 v-model="form[item.model]"
             >
             </el-input>
@@ -24,7 +26,6 @@
             <el-select
                 v-if="item.type === 'select'"
                 placeholder="请选择"
-               
                 v-model="form[item.model]"
             >
             <el-option
@@ -51,10 +52,8 @@ export default{
     },
     data (){
         return{
-
+           
         }
     }
- 
-    
 }
 </script>
